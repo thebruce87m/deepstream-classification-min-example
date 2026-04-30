@@ -1,0 +1,26 @@
+results_dir: /workspace/results/export
+
+model:
+  backbone:
+    type: resnet_18
+    pretrained_backbone_path: null
+    freeze_backbone: false
+  head:
+    type: TAOLinearClsHead
+    binary: false
+    in_channels: 512
+    topk: [1]
+
+dataset:
+  num_classes: 2
+  img_size: 224
+  classes_file: /workspace/train/classes.txt
+
+export:
+  checkpoint: /workspace/train/results/train/classifier_model_latest.pth
+  onnx_file: /workspace/models/classifier_model.onnx
+  on_cpu: false
+  input_channel: 3
+  input_width: 224
+  input_height: 224
+  batch_size: -1
