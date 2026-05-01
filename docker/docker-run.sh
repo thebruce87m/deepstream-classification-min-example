@@ -4,8 +4,9 @@ set -e
 
 # Absolute path of the script directory
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
-cd $SCRIPT_DIR
+cd $SCRIPT_DIR/../
 
+xhost +
 
 docker run \
 --gpus all \
@@ -17,5 +18,5 @@ docker run \
 -v $(pwd):/code/ \
 -e DISPLAY=$DISPLAY \
 -e CUDA_VER=13.1 \
--w /opt/nvidia/deepstream/deepstream-9.0/sources/apps/sample_apps/deepstream-test1 \
+-w /code \
 ds-classification
