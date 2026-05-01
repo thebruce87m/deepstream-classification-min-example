@@ -1,1 +1,2 @@
 classifier_model.onnx
+classifier_model.onnx_b16_gpu0_fp16.engine
