@@ -88,3 +88,49 @@ Notes:
 * Option 3 sounds deprecated, right? Correct. `(Deprecated for x86 devices)`
 * Best way is to get an onnx file into your deployment environment and have deepstream convert it there to avoid incompatibilites
 
+
+
+
+# Build the deepstream docker with python bindings
+
+```bash
+./docker/docker-build.sh
+```
+
+
+# Run the docker
+
+```bash
+./docker/docker-run.sh
+```
+
+
+
+# Test out a python deepstream example from the default install 
+
+```bash
+
+# Run inside the docker
+
+
+# Go to the folder
+cd /opt/nvidia/deepstream/deepstream-9.0/sources/deepstream_python_apps/apps/deepstream-test1
+
+# Run it
+python3 \
+deepstream_test_1.py \
+/opt/nvidia/deepstream/deepstream-9.0/samples/streams/sample_720p.h264
+```
+
+
+
+# Test out our example with one sgie
+
+```bash
+
+# Run inside the docker
+
+python3 \
+deepstream_test2.py \
+/code/example-data/static-video.h264
+```
