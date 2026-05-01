@@ -111,6 +111,8 @@ Notes:
 
 # Export
 
+Export the `.onnx` file using the `classification_pyt export` inside the tao container
+
 ```bash
 ./train/export-onnx.sh
 ```
