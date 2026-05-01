@@ -83,6 +83,8 @@ It gives 3 options:
 
 Notes:
 
-* `TAO Deploy` Sounds great right? Wrong. The containers that you will have to use here will probably have a different version of tensorrt and therefore the .engine file will be incompatible
+* `.etlt` sounds great, right? Wrong. Later in the same page you see `From TAO 5.0.0, .etlt is deprecated.`
+* `TAO Deploy` sounds great, right? Wrong. The containers that you will have to use for deepstream inference here will probably have a different version of tensorrt and therefore the .engine file will be incompatible
+* Option 3 sounds deprecated, right? Correct. `(Deprecated for x86 devices)`
 * Best way is to get an onnx file into your deployment environment and have deepstream convert it there to avoid incompatibilites
 
