@@ -14,26 +14,26 @@ model:
 dataset:
   dataset: CLDataset
   root_dir: /workspace/data/
-  num_classes: 2
+  num_classes: 3
   img_size: 224
-  batch_size: 6
+  batch_size: 9
   workers: 4
   augmentation:
     mixup_cutmix: false
     random_flip:
-      enable: false
-      hflip_probability: 0.0
+      enable: true
+      hflip_probability: 0.5
       vflip_probability: 0.0
     random_aug:
-      enable: false
+      enable: true
     random_erase:
-      enable: false
+      enable: true
     random_rotate:
       enable: false
     random_color:
       enable: false
     with_scale_random_crop:
-      enable: false
+      enable: true
     with_random_crop: false
     with_random_blur: true
   train_dataset:

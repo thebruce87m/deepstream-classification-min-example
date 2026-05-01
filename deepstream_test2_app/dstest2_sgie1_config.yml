@@ -52,7 +52,7 @@ property:
   net-scale-factor: 1
   onnx-file: /code/models/classifier_model.onnx
   model-engine-file: /code/models/classifier_model.onnx_b16_gpu0_fp16.engine
-  labelfile-path: /code/train/classes.txt
+  labelfile-path: /code/data/classes.txt
   #int8-calib-file: ../../../../samples/models/Secondary_VehicleMake/cal_trt.bin
   batch-size: 16
   # 0: FP32 and 1=INT8 mode
@@ -64,7 +64,7 @@ property:
   gpu-id: 0
   gie-unique-id: 2
   operate-on-gie-id: 1
-  operate-on-class-ids: 0
+  operate-on-class-ids: 2
   #is-classifier is a legacy config item
   network-type: 1
   classifier-async-mode: 1

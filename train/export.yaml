@@ -12,9 +12,9 @@ model:
     topk: [1]
 
 dataset:
-  num_classes: 2
+  num_classes: 3
   img_size: 224
-  classes_file: /workspace/train/classes.txt
+  classes_file: /workspace/data/classes.txt
 
 export:
   checkpoint: /workspace/train/results/train/classifier_model_latest.pth

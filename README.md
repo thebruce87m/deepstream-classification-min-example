@@ -16,37 +16,56 @@ November 27, 2024
 
 # First train the on the data
 
-We need a minimal dataset to prove the process
+We need a minimal dataset to prove the process. ChatGPT has generated some people:
+
+![image](data/train/blue/blue1.jpg)
+![image](data/train/red/red1.jpg)
+![image](data/train/green/green1.jpg)
+
+We only have a small number of identical samples but we are just trying to prove the process.
 
 ```
-data
+data/
+├── classes.txt
 ├── test
-│   ├── car1
-│   │   ├── sample1.jpg
-│   │   ├── sample2.jpg
-│   │   └── sample3.jpg
-│   └── car2
-│       ├── sample1.jpg
-│       ├── sample2.jpg
-│       └── sample3.jpg
+│   ├── blue
+│   │   ├── blue1.jpg
+│   │   ├── blue2.jpg
+│   │   └── blue3.jpg
+│   ├── green
+│   │   ├── green1.jpg
+│   │   ├── green2.jpg
+│   │   └── green3.jpg
+│   └── red
+│       ├── red1.jpg
+│       ├── red2.jpg
+│       └── red3.jpg
 ├── train
-│   ├── car1
-│   │   ├── sample1.jpg
-│   │   ├── sample2.jpg
-│   │   └── sample3.jpg
-│   └── car2
-│       ├── sample1.jpg
-│       ├── sample2.jpg
-│       └── sample3.jpg
+│   ├── blue
+│   │   ├── blue1.jpg
+│   │   ├── blue2.jpg
+│   │   └── blue3.jpg
+│   ├── green
+│   │   ├── green1.jpg
+│   │   ├── green2.jpg
+│   │   └── green3.jpg
+│   └── red
+│       ├── red1.jpg
+│       ├── red2.jpg
+│       └── red3.jpg
 └── val
-    ├── car1
-    │   ├── sample1.jpg
-    │   ├── sample2.jpg
-    │   └── sample3.jpg
-    └── car2
-        ├── sample1.jpg
-        ├── sample2.jpg
-        └── sample3.jpg
+    ├── blue
+    │   ├── blue1.jpg
+    │   ├── blue2.jpg
+    │   └── blue3.jpg
+    ├── green
+    │   ├── green1.jpg
+    │   ├── green2.jpg
+    │   └── green3.jpg
+    └── red
+        ├── red1.jpg
+        ├── red2.jpg
+        └── red3.jpg
 ```
 
 
@@ -88,6 +107,13 @@ Notes:
 * Option 3 sounds deprecated, right? Correct. `(Deprecated for x86 devices)`
 * Best way is to get an onnx file into your deployment environment and have deepstream convert it there to avoid incompatibilites
 
+
+
+# Export
+
+```bash
+./train/export-onnx.sh
+```
 
 
 
@@ -134,3 +160,6 @@ python3 \
 deepstream_test2.py \
 /code/example-data/static-video.h264
 ```
+
+
+![image](README/screenshot.jpg)
