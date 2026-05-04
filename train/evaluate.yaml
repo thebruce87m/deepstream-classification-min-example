@@ -43,15 +43,5 @@ dataset:
   test_dataset:
     images_dir: /workspace/data/test
 
-train:
-  num_gpus: 1
-  gpu_ids: [0]
-  num_epochs: 10
-  validation_interval: 1
-  checkpoint_interval: 1
-  pretrained_model_path: null
-  optim:
-    optim: sgd
-    lr: 0.01
-    momentum: 0.9
-    weight_decay: 0.0001
+evaluate:
+  checkpoint: /workspace/train/results/train/classifier_model_latest.pth

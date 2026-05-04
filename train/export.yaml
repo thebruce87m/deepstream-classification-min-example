@@ -2,9 +2,9 @@ results_dir: /workspace/results/export
 
 model:
   backbone:
-    type: resnet_18
-    pretrained_backbone_path: null
-    freeze_backbone: false
+    type: fan_small_12_p4_hybrid
+    pretrained_backbone_path: /workspace/train/pretrained_fan_classification_imagenet_vfan_hybrid_small/fan_hybrid_small.pth
+    freeze_backbone: True
   head:
     type: TAOLinearClsHead
     binary: false

@@ -78,6 +78,50 @@ notebook
 
 https://github.com/NVIDIA-TAO/tao-tutorials/blob/main/notebooks/tao_launcher_starter_kit/classification_pyt/classification.ipynb
 
+
+## Download the example model weights
+
+### Option 1 - FAN small
+
+https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/pretrained_fan_classification_imagenet?version=fan_hybrid_small
+
+```bash
+
+# Go to the directory to store the FAN model
+cd train/pretrained_fan_classification_imagenet_vfan_hybrid_small/
+
+# Download from nvidia
+ngc registry model download-version nvidia/tao/pretrained_fan_classification_imagenet:fan_hybrid_small
+
+# Back to where we were
+cd -
+```
+
+```bash
+# Calculate the md5sum
+md5sum train/pretrained_fan_classification_imagenet_vfan_hybrid_small/fan_hybrid_small.pth 
+
+# Note that this was the version available at the time
+bad95b5e464120d22cc631456619cc7a  train/pretrained_fan_classification_imagenet_vfan_hybrid_small/fan_hybrid_small.pth
+```
+
+# Option 2 - Resnet18 
+
+https://catalog.ngc.nvidia.com/orgs/nvidia/teams/tao/models/vehiclemakenet?version=unpruned_v1.0
+
+Note: you will need to update the model details in the yaml files, e.g.
+
+```yaml
+model:
+  backbone:
+    type: resnet_18
+    pretrained_backbone_path: null
+    freeze_backbone: false
+```
+
+
+# Train The Model
+
 ```bash
 ./train/train.sh
 ```
@@ -98,6 +142,24 @@ Epoch 29: 100%|██████████| 1/1 [00:01<00:00,  0.99it/s, v_nu
 [2026-04-30 15:40:41,906 - TAO Toolkit - TAO Toolkit - INFO] Execution status: PASS
 ```
 
+# Evaluate the model
+
+
+```bash
+./train/evaluate.sh
+```
+
+```
+Testing DataLoader 0: 100%|██████████| 1/1 [00:01<00:00,  0.61it/s]┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         val_acc_1         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+```
+
+
+
+# Deploy the model
 
 Now we follow [Deploying to DeepStream for Classification TF1/TF2/PyTorch](https://docs.nvidia.com/tao/tao-toolkit/latest/text/ds_tao/classification_ds.html)
 
