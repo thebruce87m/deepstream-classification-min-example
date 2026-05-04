@@ -68,6 +68,15 @@ data/
         └── red3.jpg
 ```
 
+The training is based on instructions here: https://docs.nvidia.com/tao/tao-toolkit/latest/text/quick_start_guide/running_from_containers.html#running-from-containers
+
+Specs file
+
+https://github.com/NVIDIA-TAO/tao-tutorials/blob/main/notebooks/tao_launcher_starter_kit/classification_pyt/specs/train_cats_dogs.yaml
+
+notebook
+
+https://github.com/NVIDIA-TAO/tao-tutorials/blob/main/notebooks/tao_launcher_starter_kit/classification_pyt/classification.ipynb
 
 ```bash
 ./train/train.sh
@@ -107,7 +116,13 @@ Notes:
 * Option 3 sounds deprecated, right? Correct. `(Deprecated for x86 devices)`
 * Best way is to get an onnx file into your deployment environment and have deepstream convert it there to avoid incompatibilites
 
+Here is the error you get:
 
+```
+ERROR: [TRT]: IRuntime::deserializeCudaEngine: Error Code 6: API Usage Error (The engine plan file is not compatible with this version of TensorRT, expecting library version 10.14.1.48 got 
+..      , please rebuild. In checkEngineVersionCompatible at /_src/runtime/api/engine.cpp:871)
+ERROR: ../nvdsinfer/nvdsinfer_model_builder.cpp:1363 Deserialize engine failed from file: /code/models/classifier_model.onnx_b16_gpu0_fp16.engine
+```
 
 # Export
 
